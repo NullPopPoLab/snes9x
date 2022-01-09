@@ -1154,13 +1154,13 @@ bool retro_load_game(const struct retro_game_info *game)
         }
 
         if (is_SufamiTurbo_Cart((uint8 *) game->data, game->size)) {
-            if ((rom_loaded = LoadBIOS(biosrom,"STBIOS.bin",0x40000)))
+            if ((rom_loaded = LoadBIOS(biosrom,"snes/STBIOS.bin",0x40000)))
             rom_loaded = Memory.LoadMultiCartMem((const uint8_t*)game->data, game->size, 0, 0, biosrom, 0x40000);
         }
 
         else
         if ((is_bsx((uint8 *) game->data + 0x7fc0)==1) | (is_bsx((uint8 *) game->data + 0xffc0)==1)) {
-            if ((rom_loaded = LoadBIOS(biosrom,"BS-X.bin",0x100000)))
+            if ((rom_loaded = LoadBIOS(biosrom,"snes/BS-X.bin",0x100000)))
             rom_loaded = Memory.LoadMultiCartMem(biosrom, 0x100000, (const uint8_t*)game->data, game->size, 0, 0);
         }
 
@@ -1272,7 +1272,7 @@ bool retro_load_game_special(unsigned game_type, const struct retro_game_info *i
                     uint8 *biosrom = new uint8[0x40000];
                     uint8 *biosptr = biosrom;
 
-                    if (LoadBIOS(biosptr, "STBIOS.bin", 0x40000))
+                    if (LoadBIOS(biosptr, "snes/STBIOS.bin", 0x40000))
                     {
                         if (log_cb)
                             log_cb(RETRO_LOG_INFO, "Loading Sufami Turbo link game\n");
@@ -1303,7 +1303,7 @@ bool retro_load_game_special(unsigned game_type, const struct retro_game_info *i
             {
                 uint8 *biosrom = new uint8[0x100000];
 
-                if ((rom_loaded = LoadBIOS(biosrom,"STBIOS.bin",0x100000)))
+                if ((rom_loaded = LoadBIOS(biosrom,"snes/STBIOS.bin",0x100000)))
                     rom_loaded = Memory.LoadMultiCartMem((const uint8_t*)romptr[0], romsize[0],
                         (const uint8_t*)romptr[1], romsize[1], biosrom, 0x40000);
 

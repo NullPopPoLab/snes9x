@@ -1213,13 +1213,13 @@ static bool8 BSX_LoadBIOS (void)
 	strcpy(path, S9xGetDirectory(BIOS_DIR));
 	strcat(path, SLASH_STR);
 	strcpy(name, path);
-	strcat(name, "BS-X.bin");
+	strcat(name, "snes/BS-X.bin");
 
 	fp = fopen(name, "rb");
 	if (!fp)
 	{
 		strcpy(name, path);
-		strcat(name, "BS-X.bios");
+		strcat(name, "snes/BS-X.bios");
 		fp = fopen(name, "rb");
 	}
 
