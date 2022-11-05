@@ -8,7 +8,7 @@
 #define _SNES9X_H_
 
 #ifndef VERSION
-#define VERSION	"1.60"
+#define VERSION	"1.61"
 #endif
 
 #include "port.h"
@@ -302,8 +302,6 @@ struct SSettings
 	int32	AutoSaveDelay;
 	bool8	DontSaveOopsSnapshot;
 	bool8	UpAndDown;
-
-	bool8	OpenGLEnable;
 
     bool8   SeparateEchoBuffer;
 	uint32	SuperFXClockMultiplier;

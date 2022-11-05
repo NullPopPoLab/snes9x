@@ -58,9 +58,6 @@ class Snes9xConfig
     int save_config_file();
     int load_defaults();
     void rebind_keys();
-    void flush_joysticks();
-    void set_joystick_mode(int mode);
-    void joystick_register_centers();
 
     /* Screen options */
     bool full_screen_on_open;
@@ -127,6 +124,7 @@ class Snes9xConfig
     bool netplay_server_up;
 
     /* Operational */
+    std::vector<std::string> sound_drivers;
     int sound_driver;
     bool mute_sound;
     bool mute_sound_turbo;
@@ -167,7 +165,8 @@ class Snes9xConfig
     bool use_sync_control;
 #endif
 
-    std::vector<JoyDevice> joystick;
+
+    JoyDevices joysticks;
     int joystick_threshold;
 };
 
